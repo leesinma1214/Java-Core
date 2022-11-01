@@ -1,35 +1,37 @@
 import java.util.Scanner;
-
-public class bai4 {
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        System.out.print("Nhập n = ");
-        int n = scanner.nextInt();
-        System.out.printf("%d số nguyên tố đầu tiên là: ", n);
-        int dem = 0; 
-        int i = 2;  
-        while (dem < n) {
-            if (isPrimeNumber(i)) {
-                System.out.print(i + " ");
-                dem++;
+ 
+public class bai4
+{
+    public static void main(String args[]) {
+        int n;
+        int status = 1;
+        int num = 3;
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Nhập n: ");
+            n = sc.nextInt();
+        }
+        if (n >= 1)
+        {
+            System.out.println(n + " Số nguyên tố đầu tiên là:");
+            System.out.println(2);
+        }
+        for ( int i = 2 ; i <= n ; )
+        {
+            for ( int j = 2 ; j <= Math.sqrt(num) ; j++ )
+            {
+                if ( num % j == 0 )
+                {
+                    status = 0;
+                    break;
+                }
             }
-            i++;
+            if ( status != 0 )
+            {
+                System.out.println(num);
+                i++;
+            }
+            status = 1;
+            num++;
         }
     }
- 
-    public static boolean isPrimeNumber(int n) {
-    
-        if (n < 2) {
-            return false;
-        }
-        
-        int squareRoot = (int) Math.sqrt(n);
-        for (int i = 2; i <= squareRoot; i++) {
-            if (n % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    } 
 }

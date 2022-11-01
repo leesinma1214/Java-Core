@@ -2,18 +2,20 @@ import java.util.Scanner;
 
 public class bai6 {
     public static void main(String[] args) {
-        int n, soDu, tong = 0;
-        try (Scanner scanner = new Scanner(System.in)) {
+ 
+        int n;
+        int tong;
+
+        try (Scanner sc = new Scanner(System.in)) {
             System.out.println("Nhập vào số nguyên dương bất kỳ: ");
-            n = scanner.nextInt();
+            n = sc.nextInt();
         }
              
-        while (n > 0) {
-            soDu = n % 10;
-            n = n / 10;
-            tong += soDu;
-        }
-             
-        System.out.println("Tổng các chữ số = " + tong);
-    }
+        for(tong = 0; n != 0; n = n/10)  
+            {  
+                tong = tong + n % 10;  
+            }  
+        System.out.println("Tổng các chữ số = " + tong);    
+    }                    
 }
+

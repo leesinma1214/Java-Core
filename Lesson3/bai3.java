@@ -1,26 +1,27 @@
 import java.util.Scanner;
 
 public class bai3 {
-    private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.print("Nhập số nguyên dương a = ");
-        int a = scanner.nextInt();
-        System.out.print("Nhập số nguyên dương b = ");
-        int b = scanner.nextInt();
-        
-        System.out.println("USCLN của " + a + " và " + b
-                + " là: " + USCLN(a, b));
-        
-        System.out.println("BSCNN của " + a + " và " + b
-                + " là: " + BSCNN(a, b));
-    }
-     
-        public static int USCLN(int a, int b) {
-            if (b == 0) return a;
-            return USCLN(b, a % b);
-        }
+        try (Scanner sc = new Scanner(System.in)) {
+            
+            int uscln = 1;
 
-        public static int BSCNN(int a, int b) {
-            return (a * b) / USCLN(a, b);
+            System.out.print("Nhập số nguyên dương a: ");
+            int a = sc.nextInt();
+            System.out.print("Nhập số nguyên dương b: ");
+            int b = sc.nextInt();
+
+            for(int i = 1; i <= a && i <= b; i++)
+            {
+                if(a % i == 0 && b % i == 0)
+                    uscln = i;
+            }
+            
+            int bscnn = (a * b) / uscln;
+
+            System.out.println("Ước chung lớn nhất của " + a + " và " + b + " là: " + uscln);
+            System.out.println("Bội chung nhỏ nhất của " + a + " và " + b + " là: " + bscnn);
+        
         }
+    }
 }

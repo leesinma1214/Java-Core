@@ -1,23 +1,24 @@
 import java.util.Scanner;
 
 public class bai5 {
-    private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.print("Nhập số nguyên dương n = ");
-        int n = scanner.nextInt();
-        System.out.println(n + " là số thuận nghịch: " + isThuanNghich(n));
-    }
-      
-    public static boolean isThuanNghich(int n) {
         
-        String numberStr = String.valueOf(n);
-        
-        int size = numberStr.length();
-        for (int i = 0; i < (size/2); i++) {
-            if (numberStr.charAt(i) != numberStr.charAt(size - i - 1)) {
-                return false;
+        try (Scanner sc = new Scanner(System.in)) {
+            int num1,num2, reversed = 0;
+            System.out.println("Nhập vào số: ");
+            num1 = sc.nextInt();
+            num2 = num1;
+            
+            while(num1 != 0) {
+            int digit = num1 % 10;
+            reversed = reversed * 10 + digit;
+            num1 /= 10;
+
             }
+            if (reversed == num2)
+                System.out.println("La so thuan nghich");
+            else
+                System.out.println("Khong phai so thuan nghich");
         }
-        return true;
     }
 }
