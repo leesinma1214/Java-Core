@@ -50,7 +50,7 @@ public class MainRun {
                 break;
             case 3:
                 Assign();
-                showAssignent();
+                showAssignment();
                 break;
             case 4:
                 System.out.println("in 4");
@@ -150,7 +150,7 @@ public class MainRun {
 
     }
 
-    public static void showAssignent(){
+    public static void showAssignment(){
         for (int i = 0; i < assignments.length; i++) {
             if (assignments[i] != null) {
                 System.out.println(assignments[i]);
